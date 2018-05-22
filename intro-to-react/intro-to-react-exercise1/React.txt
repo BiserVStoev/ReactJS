@@ -1,0 +1,6 @@
+npm i webpack -S
+node_modules\.bin\webpack -d
+npm install -D webpack-cli
+npm i babel-core babel-loader babel-preset-env babel-preset-react -S
+npm i react react-dom -S
+node_modules\.bin\webpack -d --watch
