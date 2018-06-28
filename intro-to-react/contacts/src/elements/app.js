@@ -21,7 +21,7 @@ function makeApp(clickHandler, id) {
                     <div className="content">
                         <div className="info">
                             <div className="col">
-                                <span className="avatar">&#9787;</span>
+                                <span className="avatar">&#9742;</span>
                             </div>
                             <div className="col">
                                 <span className="name">{currentUser.firstName}</span>
@@ -30,7 +30,7 @@ function makeApp(clickHandler, id) {
                         </div>
                         <div className="info">
                             <div className="col">
-                                <span className="info-line">&phone; {currentUser.phone}</span>
+                                <span className="info-line">&#9742; {currentUser.phone}</span>
                                 <span className="info-line">&#9993; {currentUser.email}</span>
                             </div>
                         </div>
