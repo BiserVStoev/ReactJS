@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import reqHandler from '../../utils/reqHandler';
+import { withRouter } from 'react-router';
 
 class Login extends Component {
     constructor(props) {
@@ -24,6 +25,7 @@ class Login extends Component {
         .then(response => {
             localStorage.setItem('kinveyToken', response._kmd.authtoken );
             localStorage.setItem('username', response.username);
+            this.props.history.replace('/');
         });
     }
 
@@ -41,4 +43,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default withRouter(Login);

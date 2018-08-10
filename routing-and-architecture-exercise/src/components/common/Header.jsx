@@ -1,22 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 
-const Header = (props) => {
-    function logout() {
-        localStorage.removeItem('kinveyToken');
+class Header extends Component {
+    constructor(props){
+        super(props);
+
+        this.logout = this.logout.bind(this);
     }
 
-    return (
-        <header>
-            <span className="logo">☃</span><span className="header">SeenIt</span>
-            {
-                props.isAuthenticated
-                    ?
-                    <div id="profile"><span>{localStorage.getItem('username')}</span>|<a href='#' onClick={logout}>logout</a></div>
-                    :
-                    null
-            }
-        </header>
-    )
-}
+    logout() {
+        localStorage.removeItem('kinveyToken');
+        this.props.history.replace('/');
+    }
 
-export default Header;
+    render() {
+        return (
+            <header>
+                <span className="logo">☃</span><span className="header">SeenIt</span>
+                {
+                    this.props.isAuthenticated
+                        ?
+                        <div id="profile"><span>{localStorage.getItem('username')}</span>|<a href='javascript:void(0)' onClick={this.logout}>logout</a></div>
+                        :
+                        null
+                }
+            </header>
+        )
+    }
+};
+
+export default withRouter(Header);

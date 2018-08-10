@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import reqHandler from '../../utils/reqHandler';
 
 class Register extends Component {
@@ -22,7 +23,10 @@ class Register extends Component {
     register(e) {
         e.preventDefault();
         reqHandler.register(this.state)
-        .then(d => console.log(d));
+        .then(d => {
+            console.log(d);
+            this.props.history.replace('/');
+        });
     }
 
     render() {
@@ -41,4 +45,4 @@ class Register extends Component {
     }
 }
 
-export default Register;
+export default withRouter(Register);

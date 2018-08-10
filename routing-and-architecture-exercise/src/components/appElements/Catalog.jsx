@@ -13,7 +13,6 @@ class Catalog extends Component {
     componentDidMount() {
         reqHandler.pullPosts()
             .then(d => {
-                console.log(d)
                 this.setState({ posts: d });
             });
     }
